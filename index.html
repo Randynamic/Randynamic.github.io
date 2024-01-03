@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kadena Countdown</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000">
+  <style>
+    html,
+    body {
+      background:black;
+      width: 100%;
+      height: 100%;
+    }
+
+    .timer {
+      font-family: "CoreCircus", sans-serif;
+      text-transform: uppercase;
+      font-size: 10vw;
+      text-align: center;
+      line-height: 1;
+      margin: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      color: rgb(54,108,56);
+    }
+    .timer:before, .timer:after {
+      content: attr(data-heading);
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      top: 0;
+    }
+    .timer:before {
+      color: white;
+      width: 100%;
+      z-index: 5;
+      font-family: "CoreCircus2DIn";
+      font-weight: normal;
+    }
+
+    /*
+     * Webfont: CoreCircus by S-Core
+     * URL: http://www.myfonts.com/fonts/s-core/core-circus/regular/
+     * Copyright: Copyright (c) 2013 by S-Core Co., Ltd.. All rights reserved.
+     * Licensed pageviews: 10,000
+    *
+     * Webfont: CoreCircus2DIn by S-Core
+     * URL: http://www.myfonts.com/fonts/s-core/core-circus/in/
+     * Copyright: Copyright (c) 2013 by S-Core Co., Ltd.. All rights reserved.
+     * Licensed pageviews: 10,000
+    */
+    @font-face {
+      font-family: "CoreCircus2DIn";
+      src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.eot");
+      src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BFA_1_0.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "CoreCircus";
+      src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.eot");
+      src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.ttf") format("truetype");
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="countdown">
+    <h1 id="timer" class="timer"></h1>
+  </div>
+  <script>
+
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jan 3, 2024 17:00:00 UTC").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="timer"
+      document.getElementById("timer").innerHTML = hours + ":"
+        + minutes + ":" + seconds + "";
+
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
