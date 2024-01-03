@@ -116,10 +116,11 @@
 
       // Output the result in an element with id="timer"
       // Output the result in an element with id="timer"
+      var printedHours = hours < 10 ? '0' + hours : hours;
       var printedMinutes = minutes < 10 ? '0' + minutes : minutes;
       var printedSeconds = seconds < 10 ? '0' + seconds : seconds;
       
-      document.getElementById("timer").innerHTML = hours + ":" + printedMinutes + ":" + printedSeconds;
+      document.getElementById("timer").innerHTML = printedHours + ":" + printedMinutes + ":" + printedSeconds;
 
       // If the count down is over, write some text
       if (distance < 0) {
