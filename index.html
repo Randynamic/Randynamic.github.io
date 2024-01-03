@@ -27,10 +27,17 @@
       height: 100%;
     }
 
+    header .timer {
+      font-size: 5vw;
+      top: 5%;
+      left: 0;
+      transform: none;
+    }
+
     .timer {
       font-family: "CoreCircus", sans-serif;
       text-transform: uppercase;
-      font-size: 10vw;
+      font-size: 5vw;
       text-align: center;
       line-height: 1;
       margin: 0;
@@ -81,6 +88,10 @@
 </head>
 
 <body>
+  <header>
+    <a href="https://kadena.io" class="timer">Countdown for #NewKadena</a>
+  </header>
+
   <div id="countdown">
     <h1 id="timer" class="timer"></h1>
   </div>
